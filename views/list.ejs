@@ -1,19 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day</title>
-</head>
-<body>
-    <% if(whichday === "Saturday" || whichday === "Sunday"){ %>
-        <h1 style="color:pink">Today is <%=whichday%></h1>
-    <% } else { %>
-        <h1 style="color:red">Today is <%=whichday%></h1>
+<%- include("header")  -%> 
+    <div class="box" id="heading">
+        <h1><%= title %></h1>
+    </div>
 
-    <% } %>
+    <div class="box">
+        <% for(var i =0; i < newitems.length; i++) {%>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= newitems[i] %></p>
+            </div>
+        <%}%>
+
+        <form action="/" method="post" class="item">
+            <input type="text" name="item" placeholder="Add Item" autocomplete="off">
+            <button type="submit" name="button" value="<%= title %>">+</button>
+        </form>
+        
+    </div>
+
+    <%- include("footer")  -%> 
 
 
-</body>
-</html>
