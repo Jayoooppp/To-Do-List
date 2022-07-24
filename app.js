@@ -1,12 +1,14 @@
 // jshint esversion:6
+require('dotenv').config();
 const express = require("express");
 const parser = require("body-parser");
 const mongoose = require("mongoose")
 const date = require(__dirname + "/date.js");
 const ld = require('lodash');
-console.log(date);
 
-mongoose.connect("mongodb+srv://admin_oooppp:yourpass123@cluster0.hoqad94.mongodb.net/todolistDB");
+
+mongoose.connect(process.env.MongoDB + "/todolistDB");
+
 
 const itemSchema = new mongoose.Schema({
     item: {
